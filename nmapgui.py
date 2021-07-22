@@ -1,9 +1,10 @@
-#NMAP TEST
+#NMAP install: pip install python3-nmap
+#Ensure nmap is installed locally
 from typing import Text
 from PyQt5 import QtWidgets
-import nmap3
 import sys
 import os
+import nmap3
 from PyQt5.QtWidgets import QApplication, QMessageBox, QWidget, QInputDialog, QLineEdit
 from PyQt5.QtGui import QIcon
 
@@ -12,10 +13,10 @@ class App(QWidget):
     def __init__(self):
         super().__init__()
         self.title = 'NMAP Host Scanner'
-        self.left = 10
-        self.top = 10
-        self.width = 640
-        self.height = 480
+        self.left = 20
+        self.top = 20
+        self.width = 700
+        self.height = 500
         self.initUI()
     
     def initUI(self):
@@ -26,7 +27,7 @@ class App(QWidget):
 
     #code
     def getText(self):
-        text, okPressed = QInputDialog.getText(self, "Basic Scan","Network or Hostname:", QLineEdit.Normal, "")
+        text, okPressed = QInputDialog.getText(self, "NMAP","Network or Hostname:", QLineEdit.Normal, "")
         if okPressed and text != '':
            text2 = text
         nmap = nmap3.Nmap()
@@ -44,7 +45,6 @@ class App(QWidget):
         if returnValue == QMessageBox.Ok:
             print("Fuck")
         
-        #print("All done!")
     
 
 if __name__ == '__main__':
